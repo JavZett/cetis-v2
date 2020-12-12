@@ -1,65 +1,87 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import AppLayout from '../components/AppLayout';
+import Head from 'next/head';
+import SeccionImg from '../components/Secciones';
 
 export default function Home() {
+  const seccion_1 = {
+    titulo: 'Cetis 30 Oficial',
+    descripcion:
+      '¡Bienvenido a tu nuevo portal!, decidimos mejorar nuestro portal web para que tengas una mejor experiencia de usuario.',
+    imagen: '/banner-cetis-30.svg',
+    imagenNombre: 'cetis-30-ilustracion',
+    posicion: 'izquierda',
+    boton: {
+      nombreTrue: 'Ver más',
+      nombreFalse: 'Ver menos',
+    },
+  };
+
+  const seccion_2 = {
+    titulo: 'Nivel educativo',
+    descripcion:
+      'Ocupamos el tercer lugar en calidad educativa a nivel nacional y el suegundo lugar de todos los Cetis.',
+    imagen: '/educacion.svg',
+    imagenNombre: 'cetis-30-educacion',
+    posicion: 'derecha',
+    clases: 'seccion__gris',
+  };
+
+  const seccion_3 = {
+    titulo: 'Ubicación Cetis 30',
+    descripcion:
+      'Localizanos fácilmente: Cienfuegos 1017, Col. San Pedro Zacatenco, Alcaldía Gustavo A. Madero, Ciudad de México, C.P. 07360',
+    imagen: '/mapa.svg',
+    imagenNombre: 'cetis-30-ubicacion',
+    posicion: 'izquierda',
+    boton: {
+      nombreTrue: 'Ver mapa',
+      nombreFalse: 'Ocultar mapa',
+    },
+  };
+
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="Cetis 30" content="Cetis 30 sitio ofical" />
+        <meta
+          name="description"
+          content="Centro de Estudios Tecnológicos, Industriales y de Servicios 30  "
+        />
+        <meta
+          name="keywords"
+          content="Cetis, Cetis30, cetis 30, uemstis, escuela, sitio oficial"
+        />
+        <title>CETIS 30</title>
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+      <AppLayout>
+        <SeccionImg
+          titulo={seccion_1.titulo}
+          descripcion={seccion_1.descripcion}
+          imagen={seccion_1.imagen}
+          imagenNombre={seccion_1.imagenNombre}
+          posicion={seccion_1.posicion}
+          boton={seccion_1.boton}
+        />
+        <SeccionImg
+          titulo={seccion_2.titulo}
+          descripcion={seccion_2.descripcion}
+          imagen={seccion_2.imagen}
+          imagenNombre={seccion_2.imagenNombre}
+          posicion={seccion_2.posicion}
+          clases={seccion_2.clases}
+        />
+        <SeccionImg
+          titulo={seccion_3.titulo}
+          descripcion={seccion_3.descripcion}
+          imagen={seccion_3.imagen}
+          imagenNombre={seccion_3.imagenNombre}
+          posicion={seccion_3.posicion}
+          boton={seccion_3.boton}
+          mapa={true}
+        />
+      </AppLayout>
+    </>
+  );
 }
